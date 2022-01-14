@@ -21,5 +21,8 @@ export default {
   .page-head {
     margin-bottom: 50px;
   }
+  .mobile & {
+    padding: 40px 20px 100px;
+  }
 }
 </style>

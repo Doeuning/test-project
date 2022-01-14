@@ -5,12 +5,10 @@
 </template>
 
 <script>
-import store from "./store";
-import { mapMutations } from "vuex";
+import { mapActions } from "vuex";
 
 export default {
   name: "App",
-  components: {},
   mounted() {
     window.addEventListener("load", this.handleResize);
     window.addEventListener("resize", this.handleResize);
@@ -20,9 +18,9 @@ export default {
     window.removeEventListener("resize", this.handleResize);
   },
   methods: {
-    ...mapMutations(["GET_DEVICE_TYPE"]),
+    ...mapActions(["getDeviceType"]),
     handleResize() {
-      store.commit("GET_DEVICE_TYPE");
+      this.$store.dispatch("getDeviceType");
     },
   },
 };

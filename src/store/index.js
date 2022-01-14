@@ -11,12 +11,16 @@ export default new Vuex.Store({
   },
   mutations: {
     GET_DEVICE_TYPE(state) {
-      window.innerWidth <= 768
+      window.innerWidth <= 944
         ? (state.isMobile = true)
         : (state.isMobile = false);
     },
   },
-  actions: {},
+  actions: {
+    getDeviceType() {
+      this.commit("GET_DEVICE_TYPE");
+    },
+  },
   modules: {
     auth,
   },

@@ -69,6 +69,7 @@ export default {
     visibility: hidden;
   }
   .txt {
+    display: block;
     position: relative;
     padding: 0 0 0 26px;
     font-size: 12px;
@@ -101,6 +102,7 @@ export default {
       font-size: 14px;
       line-height: 20px;
       color: #000;
+      text-align: center;
       white-space: nowrap;
       &::before {
         display: none;

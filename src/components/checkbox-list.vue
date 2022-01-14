@@ -1,6 +1,6 @@
 <template>
   <div class="check-list-wrap">
-    <div class="check-all">
+    <div class="check-all" v-if="!isMobile">
       <slot name="checkall"></slot>
     </div>
     <div class="check-list">
@@ -24,46 +24,51 @@ export default {
   .check-list {
     display: flex;
   }
-}
-.form-checkbox.box {
-  ::v-deep .txt {
-    border-radius: 0;
-    position: relative;
-  }
-  & + .form-checkbox.box {
+
+  .form-checkbox.box {
     ::v-deep .txt {
-      border-left: none;
+      border-radius: 0;
+      position: relative;
     }
-  }
-  &:first-child {
-    ::v-deep .txt {
-      border-radius: 10px 0 0 10px;
-      &::before {
-        display: none !important;
+    & + .form-checkbox.box {
+      ::v-deep .txt {
+        border-left: none;
+      }
+    }
+    &:first-child {
+      ::v-deep .txt {
+        border-radius: 10px 0 0 10px;
+        &::before {
+          display: none !important;
+        }
+      }
+    }
+    &:last-child {
+      ::v-deep .txt {
+        border-radius: 0 10px 10px 0;
+      }
+    }
+    &.checked {
+      ::v-deep .txt {
+        &::before {
+          display: block;
+          content: "";
+          position: absolute;
+          top: -1px;
+          bottom: -1px;
+          left: -1px;
+          width: 1px;
+          height: auto;
+          background: #00d4ac;
+        }
       }
     }
   }
-  &:last-child {
-    ::v-deep .txt {
-      border-radius: 0 10px 10px 0;
+  .mobile & {
+    display: block;
+    .form-checkbox.box {
+      flex: 1;
     }
   }
-  &.checked {
-    ::v-deep .txt {
-      &::before {
-        display: block;
-        content: "";
-        position: absolute;
-        top: -1px;
-        bottom: -1px;
-        left: -1px;
-        width: 1px;
-        height: auto;
-        background: #00d4ac;
-      }
-    }
-  }
-}
-.mobile {
 }
 </style>

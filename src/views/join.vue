@@ -78,7 +78,6 @@
               <checkbox-list>
                 <template #checkall>
                   <form-checkbox-all
-                    v-if="!$store.state.isMobile"
                     class="box"
                     v-model="chatTime.days.all"
                     :baseList="chatTime.days.list"
@@ -125,17 +124,18 @@
           <template #key>화상상담 가능 시간</template>
           <template #value>
             <div class="row">
-              <form-checkbox-all
-                v-if="!$store.state.isMobile"
-                class="box"
-                v-model="videoTime.days.all"
-                :baseList="videoTime.days.list"
-                :checkedList.sync="videoTime.days.checked"
-                :disabled="videoTime.days.allDisabled"
-              >
-                <template #text> 전체 </template>
-              </form-checkbox-all>
               <checkbox-list>
+                <template #checkall>
+                  <form-checkbox-all
+                    class="box"
+                    v-model="videoTime.days.all"
+                    :baseList="videoTime.days.list"
+                    :checkedList.sync="videoTime.days.checked"
+                    :disabled="videoTime.days.allDisabled"
+                  >
+                    <template #text> 전체 </template>
+                  </form-checkbox-all>
+                </template>
                 <template #checklist>
                   <form-checkbox
                     class="box"
@@ -173,17 +173,19 @@
           <template #key>전화상담 가능 시간</template>
           <template #value>
             <div class="row">
-              <form-checkbox-all
-                v-if="!$store.state.isMobile"
-                class="box"
-                v-model="callTime.days.all"
-                :baseList="callTime.days.list"
-                :checkedList.sync="callTime.days.checked"
-                :disabled="callTime.days.allDisabled"
-              >
-                <template #text> 전체 </template>
-              </form-checkbox-all>
               <checkbox-list>
+                <template #checkall>
+                  <form-checkbox-all
+                    v-if="!$store.state.isMobile"
+                    class="box"
+                    v-model="callTime.days.all"
+                    :baseList="callTime.days.list"
+                    :checkedList.sync="callTime.days.checked"
+                    :disabled="callTime.days.allDisabled"
+                  >
+                    <template #text> 전체 </template>
+                  </form-checkbox-all>
+                </template>
                 <template #checklist>
                   <form-checkbox
                     class="box"
@@ -221,17 +223,19 @@
           <template #key>대면상담 가능 시간</template>
           <template #value>
             <div class="row">
-              <form-checkbox-all
-                v-if="!$store.state.isMobile"
-                class="box"
-                v-model="meetTime.days.all"
-                :baseList="meetTime.days.list"
-                :checkedList.sync="meetTime.days.checked"
-                :disabled="meetTime.days.allDisabled"
-              >
-                <template #text> 전체 </template>
-              </form-checkbox-all>
               <checkbox-list>
+                <template #checkall>
+                  <form-checkbox-all
+                    v-if="!$store.state.isMobile"
+                    class="box"
+                    v-model="meetTime.days.all"
+                    :baseList="meetTime.days.list"
+                    :checkedList.sync="meetTime.days.checked"
+                    :disabled="meetTime.days.allDisabled"
+                  >
+                    <template #text> 전체 </template>
+                  </form-checkbox-all>
+                </template>
                 <template #checklist>
                   <form-checkbox
                     class="box"
