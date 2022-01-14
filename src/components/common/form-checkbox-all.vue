@@ -8,18 +8,17 @@ export default {
     prop: "allCheck",
     event: "formChange",
   },
-  data() {
-    return {
-      changedList: this.baseList,
-      filteredList: "",
-    };
-  },
   computed: {
     checkType() {
       return this.allCheck;
     },
     classBind() {
       return this.allCheck;
+    },
+    filteredList() {
+      return this.baseList.filter((el) => {
+        return el.disabled === false;
+      });
     },
   },
   watch: {
@@ -28,18 +27,6 @@ export default {
         "formChange",
         this.checkedList.length === this.filteredList.length
       );
-    },
-    allDisabled() {
-      if (this.allDisabled) {
-        this.changedList = this.baseList.filter((el) => {
-          el.disabled = true;
-        });
-        this.allCheck = false;
-      } else {
-        this.changedList = this.baseList.filter((el) => {
-          el.disabled = false;
-        });
-      }
     },
   },
   methods: {

@@ -67,6 +67,7 @@ select {
     background-color: #f7f7f7;
     background-image: url(../../assets/images/ic-down-20-gr.svg);
     color: #bbb;
+    opacity: 1;
   }
 }
 </style>
