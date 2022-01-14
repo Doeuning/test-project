@@ -3,15 +3,12 @@ import formCheckbox from "./form-checkbox";
 export default {
   name: "form-checkbox-all",
   extends: formCheckbox,
-  props: ["allCheck", "baseList", "checkedList"],
+  props: ["baseList", "checkedList"],
   model: {
     prop: "allCheck",
     event: "formChange",
   },
   computed: {
-    checkType() {
-      return this.allCheck;
-    },
     classBind() {
       return this.allCheck;
     },
