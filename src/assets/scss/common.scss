@@ -1,0 +1,64 @@
+@import "reset";
+@import "fonts";
+
+body {
+  font-family: "Spoqa Han Sans";
+  letter-spacing: -0.5px;
+  color: #000;
+}
+
+#app {
+  min-width: 944px;
+  max-width: 944px;
+  margin: 0 auto;
+}
+
+* {
+  outline: none;
+}
+
+.mint {
+  color: #00bc99 !important;
+}
+
+.tit-1 {
+  margin: 0;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 34px;
+}
+
+.dot-list {
+  margin-top: 10px;
+  li {
+    position: relative;
+    padding: 0 0 0 8px;
+    font-size: 12px;
+    line-height: 18px;
+    color: #888;
+    & + li {
+      margin-top: 8px;
+    }
+    &::before {
+      display: block;
+      content: "";
+      position: absolute;
+      top: 8px;
+      left: 0;
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: #bbb;
+    }
+  }
+}
+
+#app.mobile {
+  min-width: auto;
+  max-width: none;
+  width: 100%;
+  .tit-1 {
+    font-size: 24px;
+    line-height: 30px;
+  }
+}
