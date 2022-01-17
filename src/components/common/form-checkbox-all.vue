@@ -3,36 +3,52 @@ import formCheckbox from "./form-checkbox";
 export default {
   name: "form-checkbox-all",
   extends: formCheckbox,
-  props: ["baseList", "checkedList"],
+  props: ["allCheck", "baseList"],
   model: {
     prop: "allCheck",
     event: "formChange",
+  },
+  updated() {},
+  data() {
+    return {
+      checkedList: [],
+      filteredList: [],
+    };
+  },
+  mounted() {
+    this.filteredList = this.baseList.filter((el) => {
+      return el.disabled === false;
+    });
   },
   computed: {
     classBind() {
       return this.allCheck;
     },
-    filteredList() {
-      return this.baseList.filter((el) => {
-        return el.disabled === false;
-      });
-    },
   },
   watch: {
-    checkedList() {
+    checked() {
       this.$emit(
         "formChange",
-        this.checkedList.length === this.filteredList.length
+        this.checked.length === this.filteredList.length
       );
+    },
+    disabled() {
+      this.filteredList = this.baseList.filter((el) => {
+        return el.disabled === false;
+      });
     },
   },
   methods: {
     clickEvent() {
-      this.filteredList = this.baseList.filter((el) => {
-        return el.disabled === false;
-      });
-      this.$emit("update:checkedList", !this.allCheck ? this.filteredList : []);
-      this.$emit("formChange", this.allCheck);
+      console.log("this.allCheck", this.allCheck);
+      if (this.checked !== this.filteredList) {
+        this.checkedList = this.filteredList;
+      } else {
+        this.checkedList = [];
+      }
+      console.log("this.checked", this.checkedList);
+      this.$emit("update:checked", this.checkedList);
+      this.$emit("formChange", this.checkedList);
     },
   },
 };

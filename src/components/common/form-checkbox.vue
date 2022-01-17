@@ -13,7 +13,7 @@
 <script>
 export default {
   name: "form-checkbox",
-  props: ["checked", "val", "allCheck", "baseList", "disabled"],
+  props: ["checked", "val", "baseList", "disabled"],
   model: {
     prop: "checked",
     event: "formChange",

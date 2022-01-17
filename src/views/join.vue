@@ -81,7 +81,7 @@
                     class="box"
                     v-model="chatTime.days.all"
                     :baseList="chatTime.days.list"
-                    :checkedList.sync="chatTime.days.checked"
+                    :checked.sync="chatTime.days.checked"
                     :disabled="chatTime.days.allDisabled"
                   >
                     <template #text> 전체 </template>
@@ -92,8 +92,8 @@
                     class="box"
                     v-for="item in chatTime.days.list"
                     v-model="chatTime.days.checked"
-                    :allCheck="chatTime.days.all"
                     :val="item"
+                    :allCheck="chatTime.days.all"
                     :baseList="chatTime.days.list"
                     :disabled="item.disabled"
                     :key="item.id"
