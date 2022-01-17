@@ -823,7 +823,6 @@ export default {
       this[key].days.list.forEach((el) => {
         el.disabled = value;
       });
-      this[key].days.checked = [];
       this[key].startTime.disabled = value;
       this[key].endTime.disabled = value;
     },
