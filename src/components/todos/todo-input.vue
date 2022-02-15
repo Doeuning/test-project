@@ -1,6 +1,12 @@
 <template>
   <div class="input-box">
-    <input type="text" class="todo-input" v-model="todoValue" ref="input" />
+    <input
+      type="text"
+      class="todo-input"
+      v-model="todoValue"
+      ref="input"
+      @keydown.enter="addTodo"
+    />
     <button type="button" class="btn-add" @click="addTodo">Add</button>
   </div>
 </template>
@@ -13,8 +19,15 @@ export default {
       todoValue: "",
     };
   },
+  mounted() {
+    this.$refs.input.focus();
+  },
   methods: {
     addTodo() {
+      if (this.todoValue === "") {
+        this.$refs.input.focus();
+        return;
+      }
       this.$store.commit("todo/ADD_TODO", this.todoValue);
       this.todoValue = "";
       this.$refs.input.focus();

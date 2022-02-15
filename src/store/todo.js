@@ -19,7 +19,7 @@ export default {
     TOGGLE_TODO(state, payload) {
       state.list[payload.index].complete = !state.list[payload.index].complete;
       localStorage.removeItem(payload.item);
-      localStorage.setItem(payload.item, JSON.stringify(payload.item));
+      localStorage.setItem(payload.item.item, JSON.stringify(payload.item));
     },
     CLEAR_ALL(state) {
       localStorage.clear();
