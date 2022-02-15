@@ -1,6 +1,13 @@
 <template>
   <footer class="footer">
-    <button type="button" class="btn-all-del" @click="clearAll">
+    <button
+      type="button"
+      :class="{
+        'btn-all-del': true,
+        active: this.$store.state.todo.list.length,
+      }"
+      @click="clearAll"
+    >
       Delete All
     </button>
   </footer>
@@ -24,7 +31,5 @@ export default {
 }
 .btn-all-del {
   width: 100%;
-  background: #888;
-  opacity: 0.5;
 }
 </style>

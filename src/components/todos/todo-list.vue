@@ -51,7 +51,7 @@ ul {
     background: rgba(255, 255, 255, 0.5);
     transition: all 0.3s;
     &.complete {
-      background: cornflowerblue;
+      background: rgba(100, 149, 237, 0.5);
     }
   }
 }
@@ -143,7 +143,7 @@ ul {
     background: #fff;
   }
   .complete & {
-    background: #bbb;
+    background: #999;
     opacity: 1;
   }
 }

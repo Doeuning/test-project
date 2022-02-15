@@ -7,7 +7,13 @@
       ref="input"
       @keydown.enter="addTodo"
     />
-    <button type="button" class="btn-add" @click="addTodo">Add</button>
+    <button
+      type="button"
+      :class="{ 'btn-add': true, active: todoValue }"
+      @click="addTodo"
+    >
+      Add
+    </button>
   </div>
 </template>
 
