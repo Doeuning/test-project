@@ -62,3 +62,22 @@ body {
     line-height: 30px;
   }
 }
+[class^="btn-"] {
+  box-sizing: border-box;
+  border-radius: 10px;
+  padding: 20px;
+  background: cornflowerblue;
+  color: #fff;
+  //&:active {
+  //  animation: clickAction 0.6s;
+  //}
+}
+
+@keyframes clickAction {
+  60% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

@@ -4,6 +4,7 @@ import Vuex from "vuex";
 Vue.use(Vuex);
 
 import auth from "./auth";
+import todo from "./todo";
 
 export default new Vuex.Store({
   state: {
@@ -23,5 +24,6 @@ export default new Vuex.Store({
   },
   modules: {
     auth,
+    todo,
   },
 });

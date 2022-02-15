@@ -43,6 +43,12 @@ export default {
             checkedArray.push(this.val);
           }
           this.$emit("formChange", checkedArray);
+        } else {
+          let checkedArray = [...this.checked];
+          checkedArray.forEach((el) => {
+            console.log(el);
+          });
+          this.$emit("formChange", checkedArray);
         }
       }
     },
