@@ -3,8 +3,8 @@ import Vuex from "vuex";
 
 Vue.use(Vuex);
 
-import auth from "./auth";
-import todo from "./todo";
+import auth from "./modules/auth";
+import todo from "./modules/todo";
 
 export default new Vuex.Store({
   state: {
