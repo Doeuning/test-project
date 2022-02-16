@@ -18,6 +18,9 @@
 </template>
 
 <script>
+import { createNamespacedHelpers } from "vuex";
+const todoMutations = createNamespacedHelpers("todo");
+
 export default {
   name: "todo-input",
   data() {
@@ -34,10 +37,11 @@ export default {
         this.$refs.input.focus();
         return;
       }
-      this.$store.commit("todo/ADD_TODO", this.todoValue);
+      this.commitEvent(this.todoValue);
       this.todoValue = "";
       this.$refs.input.focus();
     },
+    ...todoMutations.mapMutations({ commitEvent: "ADD_TODO" }),
   },
 };
 </script>

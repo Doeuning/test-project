@@ -14,12 +14,11 @@
 </template>
 
 <script>
+import { mapMutations } from "vuex";
 export default {
   name: "todo-footer",
   methods: {
-    clearAll() {
-      this.$store.commit("todo/CLEAR_ALL");
-    },
+    ...mapMutations("todo", { clearAll: "CLEAR_ALL" }),
   },
 };
 </script>

@@ -1,7 +1,7 @@
 <template>
   <ul>
     <li
-      v-for="(item, index) in this.$store.state.todo.list"
+      v-for="(item, index) in list"
       :key="index"
       :class="{ complete: item.complete }"
     >
@@ -10,12 +10,16 @@
           id="index"
           type="checkbox"
           :class="{ input: true, complete: item.complete }"
-          @change="toggleCheckbox(item, index)"
+          @change="toggleCheckbox({ item, index })"
         />
         <span class="ico"></span>
       </label>
       <span class="txt">{{ item.item }}</span>
-      <button type="button" class="btn-delete" @click="deleteTodo(item, index)">
+      <button
+        type="button"
+        class="btn-delete"
+        @click="deleteTodo({ item, index })"
+      >
         Delete
       </button>
     </li>
@@ -23,15 +27,17 @@
 </template>
 
 <script>
+import { mapState, mapMutations } from "vuex";
 export default {
   name: "todo-list",
+  computed: {
+    ...mapState("todo", ["list"]),
+  },
   methods: {
-    deleteTodo(item, index) {
-      this.$store.commit("todo/DELETE_TODO", { item, index });
-    },
-    toggleCheckbox(item, index) {
-      this.$store.commit("todo/TOGGLE_TODO", { item, index });
-    },
+    ...mapMutations("todo", {
+      deleteTodo: "DELETE_TODO",
+      toggleCheckbox: "TOGGLE_TODO",
+    }),
   },
 };
 </script>
